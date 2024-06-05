@@ -9,7 +9,7 @@ const apiResearchRouter: express.Router = express.Router();
 apiResearchRouter.use(express.json());
 
 apiResearchRouter.delete("/:id", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-
+    console.log('delete with key: ', req.params.id);
     if (await prisma.note.count({
         where: {
             id: Number(req.params.id)
@@ -76,7 +76,7 @@ apiResearchRouter.put("/:id", async (req: express.Request, res: express.Response
 });
 */
 apiResearchRouter.post("/", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-
+    console.log('post from alch: ', req.body.alche);
     if (req.body.tuote?.length > 0) {
 
         try {
@@ -128,7 +128,7 @@ apiResearchRouter.get("/:id", async (req: express.Request, res: express.Response
 });
 */
 apiResearchRouter.get("/", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-
+    console.log('get received');
     try {
         res.json(await prisma.note.findMany());
     } catch (e: any) {

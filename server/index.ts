@@ -1,9 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-//import path from 'path';
 import apiResearchRouter from './routes/apiResearch';
 import errorHandler from './errors/errorHandler';
-//import fs from 'fs/promises';
 
 const app : express.Application = express();
 
